@@ -1,1 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<body>
+  <div class="particles"></div>
+  <div class="glow"></div>
+  
+<header>
+    <div class="logo">Terra Guard</div>
 
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="howitworks.html">How It Works</a>
+        <a href="impact.html">Impact</a>
+        <a href="contact.html">Contact</a>
+    </nav>
+
+    <a class="btn" href="page4.html">Prepare Now</a>
+</header>
+
+<section class="hero">
+
+    <div class="hero-text">
+ <h1>
+    Do you know what to do in case of a natural disaster?
+</h1>
+
+        <p>
+            Terra Guard helps you stay prepared
+             by turning early risk information into clear actions before natural disasters occur.
+        </p>
+
+        <div class="buttons">
+            <a class="primary-btn" href="page4.html">
+                Prepare Now
+            </a>
+
+            <a class="secondary-btn" href="howitworks.html">
+                Test Your Knowledge
+            </a>
+        </div>
+
+    </div>
+
+</section>
+
+<section class="features">
+
+    <div class="card">
+        <h3> Mindful Prevention</h3>
+
+        <p>
+            Learn disaster prevention tips and eco-friendly preparedness strategies.
+        </p>
+    </div>
+
+    <div class="card">
+        <h3> AI Recommendation</h3>
+
+        <p>
+            Simply input your location and housing details, and
+            get a personalized emergency kit checklist tailored to your needs.
+        </p>
+    </div>
+
+    <div class="card">
+        <h3> Secure & Private</h3>
+
+        <p>
+            Your data is not stored. Fully anonymous and secure. We prioritize your privacy while
+            keeping you safe.
+        </p>
+    </div>
+
+</section>
+
+<footer>
+    ©️ 2026 Genius Olympiad Project - Team MindSpark. All rights reserved.
+</footer>
+</body>
