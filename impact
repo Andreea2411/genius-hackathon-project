@@ -1,1 +1,145 @@
+<body>
+<!-- NAVBAR -->
+<nav class="navbar">
+    <div class="logo">
+        Terra Guard
+    </div>
+    <div class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="howitworks.html">How It Works</a>
+        <a href="impact.html">Impact</a>
+        <a href="contact.html">Contact</a>
+    </div>
+    <a href="page4.html" class="btn">
+        Prepare Now
+    </a>
+</nav>
+<!-- HERO -->
+<section class="hero">
+    <div>
+        <h1>
+            Our <span>Environmental Impact</span>
+        </h1>
+        <p>
+           Terra Guard helps communities become better prepared for natural disasters by providing personalized recommendations and prevention strategies.
+        </p>
+    </div>
+</section>
+<!-- STATS -->
+<section class="stats">
+    <div class="title">
+        <h2>
+            Making a Difference
+        </h2>
+    </div>
+    <div class="stats-container">
+        <div class="card">
+            <h3>50%</h3>
+            <p>
+             Faster emergency response times in prepared households.
+            </p>
+        </div>
+        <div class="card">
+            <h3>70%</h3>
+            <p>
+               Drop in severe injuries within proactive, alerted communities.
+            </p>
+        </div>
+        <div class="card">
+            <h3>30%</h3>
+            <p>
+                Reduction in property damage costs through early prevention.
+            </p>
+        </div>
+        <div class="card">
+            <h3>9/10</h3>
+            <p>
+                Users feel secure and panic-free having a clear action plan.
+            </p>
+        </div>
+    </div>
+</section>                                                                                      <section style="width: 80%; max-width: 800px; margin: 50px auto; background: #1a1a1a; padding: 20px; border-radius: 15px; border: 1px solid #333;">
+    <h2 style="color: white; text-align: center; margin-bottom: 20px;">The Terra Guard Effect: Saving Lives</h2>
+    
+    <canvas id="impactChart"></canvas>
+</section>
 
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+<script>
+    const ctx = document.getElementById('impactChart').getContext('2d');
+    const impactChart = new Chart(ctx, {
+        type: 'line',
+        data: {
+            labels: ['Start of Disaster', '1 Hour In', '3 Hours In', '12 Hours In', '24 Hours In'],
+            datasets: [
+                {
+                    label: 'Casualties WITHOUT Terra Guard',
+                    data: [5, 45, 120, 250, 310], // Numere mari care cresc
+                    borderColor: '#ff4d4d', // Roșu
+                    backgroundColor: 'rgba(255, 77, 77, 0.1)',
+                    borderWidth: 3,
+                    fill: true,
+                    tension: 0.4
+                },
+                {
+                    label: 'Casualties WITH Terra Guard',
+                    data: [5, 15, 25, 30, 35], // Numere mici, controlate
+                    borderColor: '#4ade80', // Verde neon
+                    backgroundColor: 'rgba(74, 222, 128, 0.1)',
+                    borderWidth: 3,
+                    fill: true,
+                    tension: 0.4
+                }
+            ]
+        },
+        options: {
+            responsive: true,
+            plugins: {
+                legend: {
+                    labels: { color: 'white', font: { size: 14 } }
+                }
+            },
+            scales: {
+                x: {
+                    ticks: { color: '#ccc' },
+                    grid: { color: '#333' }
+                },
+                y: {
+                    ticks: { color: '#ccc' },
+                    grid: { color: '#333' },
+                    title: {
+                        display: true,
+                        text: 'Number of Affected People',
+                        color: 'white',
+                        font: { size: 14 }
+                    }
+                }
+            }
+        }
+    });
+</script>
+<!-- INFO SECTION -->
+<section class="info-section">
+    <div class="info-text">
+        <h2>
+            Why <span>Prevention</span> Matters
+        </h2>
+        <p>
+            Disasters strike fast, but preparation is faster. Terra Guard gives communities the tools to react instantly, reducing panic and saving lives when every second counts.
+        </p>
+    </div>
+    <div class="info-box">
+        <ul>
+            <li>✔️ Increases Preparedness</li>
+            <li>✔️ Improves Safety</li>
+            <li>✔️ Raises Awareness</li>
+            <li>✔️ Supports Communities</li>
+        </ul>
+    </div>
+</section>
+<!-- FOOTER -->
+<footer>
+    ©️ 2026 Genius Olympiad Project - Team MindSpark. All rights reserved.
+</footer>
+</body>
