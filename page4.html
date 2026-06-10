@@ -125,3 +125,520 @@
     </p>
 </footer>
 </body>
+  <head>
+  <meta charset="UTF-8" />
+  <title>Terra Guard</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <style>
+    :root {
+      --bg: #07130a;
+      --panel: rgba(255,255,255,0.08);
+      --muted: #9effb3;
+      --text: #ffffff;
+      --accent: #22ff66;
+      --good: #22ff66;
+      --warn: #ffd23f;
+      --bad: #ff4d4d;
+      --overlay-start: rgba(0,0,0,0.2);
+      --overlay-end: rgba(0,0,0,0.25);
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      color: var(--text);
+      font-family: Arial, sans-serif;
+      line-height: 1.4;
+      background:
+        linear-gradient(var(--overlay-start), var(--overlay-end)),
+        url("https://images.unsplash.com/photo-1656077217715-bdaeb06bd01f?ixlib=rb-4.1.0&q=85&fm=jpg&crop=entropy&cs=srgb&dl=javier-miranda-AlJ9TQqeCV0-unsplash.jpg");
+      background-size: cover;
+      background-position: center;
+      background-attachment: fixed;
+      transition: background 0.5s ease, color 0.4s ease;
+    }
+
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 60px;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(0,0,0,0.15);
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+    }
+
+    .logo {
+      font-size: 24px;
+      font-weight: 900;
+      color: #22ff66;
+      text-shadow:
+        0 0 10px rgba(34,255,102,0.5),
+        0 0 30px rgba(34,255,102,0.2);
+    }
+
+    nav {
+      display: flex;
+      align-items: center;
+    }
+
+    nav a {
+      color: white;
+      margin: 0 18px;
+      text-decoration: none;
+      font-size: 15px;
+      position: relative;
+      transition: 0.3s;
+      opacity: 0.85;
+    }
+
+    nav a:hover {
+      color: #22ff66;
+      opacity: 1;
+    }
+
+    nav a::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: -6px;
+      width: 0%;
+      height: 2px;
+      background: #22ff66;
+      transition: 0.3s;
+    }
+
+    nav a:hover::after {
+      width: 100%;
+    }
+
+    .btn {
+      background: linear-gradient(90deg, #22ff66, #8cff66);
+      padding: 15px 30px;
+      border-radius: 999px;
+      color: black;
+      text-decoration: none;
+      font-weight: 800;
+      display: inline-flex;
+      justify-content: center;
+      align-items: center;
+      transition: 0.4s;
+      box-shadow: 0 0 25px rgba(34,255,102,0.3);
+    }
+
+    .btn:hover {
+      transform: translateY(-4px) scale(1.06);
+      box-shadow: 0 0 45px rgba(34,255,102,0.6);
+    }
+
+    .hero-header {
+      padding: 60px 20px;
+      text-align: center;
+      border-bottom: 1px solid rgba(255,255,255,0.1);
+      background: rgba(0,0,0,0.15);
+    }
+
+    .hero-header h1 {
+      font-size: 72px;
+      background: linear-gradient(90deg, #ffffff, #8cff66, #22ff66);
+      background-clip: text;
+      -webkit-background-clip: text;
+      color: transparent;
+      -webkit-text-fill-color: transparent;
+      text-transform: uppercase;
+      letter-spacing: 4px;
+      margin: 0;
+    }
+
+    .subtitle {
+      color: white;
+      margin-top: 12px;
+      font-size: 1.2rem;
+      letter-spacing: 2px;
+    }
+
+    main {
+      max-width: 900px;
+      margin: 24px auto;
+      padding: 0 16px 48px;
+      display: grid;
+      gap: 20px;
+      grid-template-columns: 1fr;
+    }
+
+    @media (min-width: 900px) {
+      main {
+        grid-template-columns: 1.1fr 0.9fr;
+      }
+    }
+
+    .card {
+      background: rgba(255,255,255,0.08);
+      border: 1px solid rgba(255,255,255,0.15);
+      border-radius: 25px;
+      padding: 24px;
+      box-shadow: 0 8px 32px rgba(0,0,0,0.4);
+    }
+
+    .section-title {
+      font-size: 13px;
+      color: #8cff66;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      margin-bottom: 18px;
+      font-weight: 700;
+    }
+
+    .grid {
+      display: grid;
+      gap: 12px;
+    }
+
+    .row {
+      display: grid;
+      gap: 10px;
+      grid-template-columns: 1fr;
+    }
+
+    @media (min-width: 560px) {
+      .row.two {
+        grid-template-columns: 1fr 1fr;
+      }
+      .row.three {
+        grid-template-columns: 1fr 1fr 1fr;
+      }
+    }
+
+    label {
+      font-weight: 600;
+      font-size: 13px;
+      color: #b9db81;
+    }
+
+    input[type="text"],
+    select,
+    input[type="number"] {
+      width: 100%;
+      padding: 12px;
+      border-radius: 14px;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      background: rgba(255,255,255,0.08);
+      color: white;
+      font-size: 15px;
+    }
+
+    select option {
+      background-color: #07130a;
+      color: white;
+    }
+
+    select option:checked {
+      background-color: #14532d;
+      color: #22ff66;
+    }
+
+    input::placeholder {
+      color: #98a1ae;
+    }
+
+    .help {
+      font-size: 12px;
+      color: rgba(200, 255, 220, 0.9);
+      margin-top: 6px;
+      text-shadow: 0 0 6px rgba(34,255,102,0.15);
+    }
+
+    .actions {
+      display: flex;
+      gap: 10px;
+      margin-top: 6px;
+    }
+
+    button {
+      appearance: none;
+      border: none;
+      border-radius: 999px;
+      padding: 15px 28px;
+      font-weight: 800;
+      cursor: pointer;
+      color: rgb(0, 0, 0);
+      background: linear-gradient(90deg, #22ff66, #8cff66);
+      font-size: 1rem;
+      transition: 0.3s;
+      box-shadow: 0 0 20px rgba(34,255,102,0.4);
+    }
+
+    button:hover {
+      transform: scale(1.05);
+    }
+
+    button.secondary {
+      background: transparent;
+      color: #22ec6c;
+      border: 1px solid rgba(2, 255, 23, 0.837);
+      box-shadow: none;
+    }
+
+    .result {
+      display: none;
+      margin-top: 6px;
+      border-radius: 12px;
+      padding: 14px;
+      color: #22ec6c;
+      border: 1px dashed rgba(255,255,255,0.18);
+      background: rgba(255,255,255,0.03);
+    }
+
+    .badge {
+      display: inline-block;
+      padding: 4px 10px;
+      border-radius: 999px;
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: 0.3px;
+    }
+
+    ul {
+      margin: 10px 0 0 18px;
+    }
+
+    .muted {
+      color: #b5d3c1;
+    }
+
+    footer {
+      text-align: center;
+      padding: 30px;
+      background: rgba(34,255,102,0.12);
+      border-top: 1px solid rgba(255,255,255,0.08);
+      color: white;
+      margin-top: 50px;
+    }
+
+    .info-box {
+      margin-top: 12px;
+      padding: 20px;
+      border-radius: 20px;
+      text-align: center;
+      background: linear-gradient(
+        135deg,
+        rgba(18,90,50,0.3),
+        rgba(34,255,102,0.1),
+        rgba(255,255,255,0.05)
+      );
+      border: 1px solid rgba(140,255,180,0.35);
+      box-shadow: 0 0 20px rgba(34,255,102,0.15);
+    }
+  </style>
+</head>
+  <script>
+    function buildActions(data) {
+      const actions = [];
+
+      if (!data.disaster) {
+        actions.push("Choose a natural disaster to receive tailored safety recommendations.");
+      } else {
+        if (data.disaster === "earthquake") {
+          actions.push("Secure tall furniture and practice drop-cover-hold.");
+          actions.push("Keep a clear escape path and know the safest interior room.");
+          if (data.housing === "apartment" || data.housing === "high-rise") {
+            actions.push("Identify a safe interior space away from windows.");
+          }
+        }
+
+        if (data.disaster === "flood") {
+          actions.push("Move important items to higher ground and avoid floodwater.");
+          actions.push("Plan how to evacuate if water levels rise.");
+          if (data.housing === "mobile-home" || data.housing === "shared") {
+            actions.push("Choose an evacuation location outside the flood zone.");
+          }
+        }
+
+        if (data.disaster === "hurricane") {
+          actions.push("Protect windows and follow official warnings.");
+          actions.push("Keep important documents in a waterproof bag.");
+        }
+
+        if (data.disaster === "wildfire") {
+          actions.push("Clear flammable materials around your home and close vents.");
+          actions.push("Know your evacuation route before fire approaches.");
+        }
+
+        if (data.disaster === "tornado") {
+          actions.push("Find the lowest interior room and stay away from windows.");
+          actions.push("Keep a weather radio or alerts active during storms.");
+        }
+
+        if (data.disaster === "blizzard") {
+          actions.push("Stock warm clothing, blankets, and an alternative heat source.");
+          actions.push("Keep paths clear to exits and have a way to signal for help.");
+        }
+      }
+
+      if (data.pets !== "none") {
+        actions.push("Create a pet plan and pack food, water, and medications for them.");
+      }
+
+      if (data.people > 1) {
+        actions.push(`Prepare enough water, food, and first aid supplies for ${data.people} people.`);
+      }
+
+      actions.push("Keep an emergency bag ready and update it regularly.");
+      actions.push("Stay informed with local alerts and official guidance.");
+
+      return [...new Set(actions)];
+    }
+
+    function buildBackpack(data) {
+      const items = [
+        "Water (1 gallon per person per day)",
+        "Non-perishable food",
+        "First aid kit",
+        "Battery-powered flashlight",
+        "Extra batteries",
+        "Emergency whistle",
+        "Multi-tool",
+        "Copies of important documents",
+        "Local maps",
+        "Mask and hand sanitizer",
+        "Blanket or warm layers"
+      ];
+
+      if (data.disaster === "earthquake") {
+        items.push("Sturdy shoes", "Crowbar or wrench");
+      }
+
+      if (data.disaster === "flood") {
+        items.push("Waterproof bag", "Rain jacket", "Water purification tablets");
+      }
+
+      if (data.disaster === "hurricane") {
+        items.push("Portable radio", "Duct tape", "Extra batteries");
+      }
+
+      if (data.disaster === "wildfire") {
+        items.push("N95 mask", "Protective gloves", "Fire extinguisher");
+      }
+
+      if (data.disaster === "tornado") {
+        items.push("Helmet or sturdy hat", "Extra blankets", "Battery radio");
+      }
+
+      if (data.disaster === "blizzard") {
+        items.push("Hand warmers", "Snow shovel", "Warm hat and gloves");
+      }
+
+      if (data.housing === "mobile-home") {
+        items.push("Battery alarm", "Extra fuel for a vehicle", "Paper maps and a printed route plan");
+      }
+
+      if (data.housing === "high-rise") {
+        items.push("Sturdy shoes", "Extra flashlight and batteries");
+      }
+
+      if (data.pets !== "none") {
+        items.push("Pet food", "Pet water bowl", "Pet medications", "Leash / carrier", "Pet waste bags");
+      }
+
+      if (data.people > 1) {
+        items.push("Extra water and food for all members", "Personal hygiene kits");
+      }
+
+      return [...new Set(items)];
+    }
+
+    function showResult(actions, data) {
+      const result = document.getElementById("result");
+      const placeholder = document.getElementById("placeholder");
+      const backpackList = document.getElementById("backpackList");
+      const actionsList = document.getElementById("actionsList");
+
+      placeholder.style.display = "none";
+      result.style.display = "block";
+
+      const backpackItems = buildBackpack(data);
+
+      backpackList.innerHTML = "";
+      backpackItems.forEach(item => {
+        const li = document.createElement("li");
+        li.textContent = item;
+        backpackList.appendChild(li);
+      });
+
+      actionsList.innerHTML = "";
+      actions.forEach(a => {
+        const li = document.createElement("li");
+        li.textContent = a;
+        actionsList.appendChild(li);
+      });
+    }
+
+    function applyTheme(disaster) {
+      const themes = {
+        earthquake: { overlayStart: 'rgba(123,94,59,0.55)', overlayEnd: 'rgba(94,68,45,0.6)', panel: 'rgba(255,255,255,0.06)', accent: '#c27b3a', text: '#ffffff' },
+        flood: { overlayStart: 'rgba(3,37,76,0.5)', overlayEnd: 'rgba(2,76,160,0.55)', panel: 'rgba(255,255,255,0.06)', accent: '#1e90ff', text: '#ffffff' },
+        hurricane: { overlayStart: 'rgba(2,46,54,0.5)', overlayEnd: 'rgba(0,100,120,0.55)', panel: 'rgba(255,255,255,0.06)', accent: '#00a3a3', text: '#ffffff' },
+        wildfire: { overlayStart: 'rgba(120,30,20,0.5)', overlayEnd: 'rgba(200,50,10,0.55)', panel: 'rgba(255,255,255,0.06)', accent: '#ff4500', text: '#ffffff' },
+        tornado: { overlayStart: 'rgba(30,30,60,0.5)', overlayEnd: 'rgba(70,60,120,0.55)', panel: 'rgba(255,255,255,0.06)', accent: '#6a5acd', text: '#ffffff' },
+        blizzard: { overlayStart: 'rgba(240,248,255,0.85)', overlayEnd: 'rgba(200,230,255,0.6)', panel: 'rgba(0,0,0,0.05)', accent: '#7fd3ff', text: '#00121a' },
+        default: { overlayStart: 'rgba(0,0,0,0.65)', overlayEnd: 'rgba(0,0,0,0.7)', panel: 'rgba(255,255,255,0.08)', accent: '#22ff66', text: '#ffffff' }
+      };
+
+      const t = themes[disaster] || themes.default;
+      const r = document.documentElement;
+      r.style.setProperty('--overlay-start', t.overlayStart);
+      r.style.setProperty('--overlay-end', t.overlayEnd);
+      r.style.setProperty('--panel', t.panel);
+      r.style.setProperty('--accent', t.accent);
+      r.style.setProperty('--text', t.text);
+    }
+
+    function collectData() {
+      return {
+        age: document.getElementById("age").value || null,
+        country: document.getElementById("country").value.trim(),
+        city: document.getElementById("city").value.trim(),
+        housing: document.getElementById("housing").value,
+        pets: document.getElementById("pets").value,
+        people: document.getElementById("people").value
+          ? Number(document.getElementById("people").value)
+          : 1,
+        disaster: document.getElementById("disaster").value
+      };
+    }
+
+    document.addEventListener("DOMContentLoaded", () => {
+      document
+        .getElementById("recommendBtn")
+        .addEventListener("click", () => {
+          const data = collectData();
+          const actions = buildActions(data);
+          showResult(actions, data);
+        });
+
+      document
+        .getElementById("resetBtn")
+        .addEventListener("click", () => {
+          document.getElementById("age").value = "";
+          document.getElementById("country").value = "";
+          document.getElementById("city").value = "";
+          document.getElementById("housing").value = "";
+          document.getElementById("pets").value = "none";
+          document.getElementById("people").value = "";
+          document.getElementById("disaster").value = "";
+          document.getElementById("result").style.display = "none";
+          document.getElementById("placeholder").style.display = "block";
+        });
+
+      const disasterSelect = document.getElementById('disaster');
+      if (disasterSelect) {
+        disasterSelect.addEventListener('change', (e) => applyTheme(e.target.value));
+        applyTheme(disasterSelect.value);
+      }
+    });
+  </script>
+</body>
+</html>
