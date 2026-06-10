@@ -1,1 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<body>
+  <header class="navbar">
 
+    <div class="logo">Terra Guard</div>
+
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="howitworks.html">How It Works</a>
+        <a href="impact.html">Impact</a>
+        <a href="contact.html">Contact</a>
+    </nav>
+
+    <a class="btn" href="ai.html">Prepare Now</a>
+
+</header>
+
+<section class="hero-header">
+
+    <h1>Prepare yourself in advance</h1>
+    <div class="subtitle">Plan your emergency kit and stay safe.</div>
+
+</section>
+
+  <main>
+    <section class="card">
+      <div class="section-title">Enter Details</div>
+      <div class="grid">
+        <div class="row">
+          <div>
+            <label for="country">Country</label>
+            <input id="country" type="text" placeholder="e.g. United States" />
+          </div>
+        </div>
+
+        <div class="row two">
+          <div>
+            <label for="city">City</label>
+            <input id="city" type="text" placeholder="City name" />
+          </div>
+          <div>
+            <label for="housing">Type of housing</label>
+            <select id="housing">
+              <option value="">Select housing</option>
+              <option value="house">House</option>
+              <option value="apartment">Apartment</option>
+              <option value="high-rise">High-rise</option>
+              <option value="mobile-home">Mobile home</option>
+              <option value="shared">Shared housing / shelter</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="row two">
+          <div>
+            <label for="pets">Do you have pets?</label>
+            <select id="pets">
+              <option value="none" selected>No pets</option>
+              <option value="small">Small pet(s)</option>
+              <option value="big">Big pet(s)</option>
+              <option value="multiple">Multiple / outdoor pets</option>
+            </select>
+          </div>
+          <div>
+            <label for="people">Number of people</label>
+            <input id="people" type="number" min="1" max="20" placeholder="How many people" />
+          </div>
+        </div>
+
+        <div class="row two">
+          <div>
+            <label for="age">Age range</label>
+            <select id="age">
+              <option value="">Select age range</option>
+              <option value="children">Children</option>
+              <option value="pre-teens">Pre-teens</option>
+              <option value="teens">Teens</option>
+              <option value="young adults">Young adults</option>
+              <option value="adults">Adults</option>
+              <option value="elderly">Elderly</option>
+            </select>
+          </div>
+          <div>
+            <label for="disaster">Natural disaster to prepare for</label>
+            <select id="disaster">
+              <option value="">Select disaster</option>
+              <option value="earthquake">Earthquake</option>
+              <option value="flood">Flood</option>
+              <option value="hurricane">Hurricane / Cyclone</option>
+              <option value="wildfire">Wildfire</option>
+              <option value="tornado">Tornado</option>
+              <option value="blizzard">Blizzard / Winter storm</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="actions">
+          <button id="recommendBtn">Get Recommendation</button>
+          <button class="secondary" id="resetBtn" type="button">Reset</button>
+        </div>
+      </div>
+    </section>
+
+    <section class="card">
+      <div class="section-title">Recommendation</div>
+      <div id="result" class="result">
+        <div class="info-box">
+          <h4 style="margin:10px 0 6px">Safety actions</h4>
+          <ul id="actionsList"></ul>
+        </div>
+        <div class="info-box">
+          <h4 style="margin:10px 0 6px">Emergency Backpack Recommendation</h4>
+          <ul id="backpackList"></ul>
+        </div>
+      </div>
+      <div id="placeholder" class="muted">Fill the form and click “Get Recommendation”.</div>
+    </section>
+  </main>
+
+  <footer>
+
+    <p>
+        ©️ 2026 Genius Olympiad Project - Team MindSpark. All rights reserved.
+    </p>
+</footer>
+</body>
